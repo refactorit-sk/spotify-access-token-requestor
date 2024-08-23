@@ -4,3 +4,7 @@
 .idea
 **/logs
 **/target
+**/.metadata
+**/ssl
+*.bar
+GeneratedBarFiles

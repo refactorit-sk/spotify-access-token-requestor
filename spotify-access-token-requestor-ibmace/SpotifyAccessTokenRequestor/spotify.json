@@ -1,0 +1,54 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Spotify",
+    "version": "1.0.0",
+    "description": "Spotify"
+  },
+  "servers": [
+    {
+      "url": "https://accounts.spotify.com"
+    }
+  ],
+  "paths": {
+    "/authorize": {
+      "parameters": [
+        {
+          "in": "query",
+          "name": "response_type",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "client_id",
+          "in": "query",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "scope",
+          "in": "query",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "redirect_uri",
+          "in": "query",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "success"
+          }
+        }
+      }
+    }
+  }
+}

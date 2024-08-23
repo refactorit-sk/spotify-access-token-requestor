@@ -1,0 +1,26 @@
+---
+ResourceManagers:
+  JVM:
+    jvmSystemProperty: '-Djavax.net.debug=true'
+    jvmDebugPort: 9000
+    keystoreType: 'JKS'
+#    keystoreFile: '/tmp/refactorit.brazilsouth.cloudapp.azure.com.pfx'
+    keystoreFile: '/tmp/keystore.jks'
+    keystorePass: 'brokerKeystore::password'
+    truststoreType: 'JKS'
+    truststoreFile: '/tmp/truststore.jks'
+    truststorePass: 'brokerKeystore::password'
+  HTTPSConnector:
+    KeyAlias: 'refactorit.sk'
+    KeyPassword: 'brokerKeystore::password'         # Set the password or alias to the password of the key
+    KeystoreFile: '/tmp/keystore.jks'
+    KeystorePassword: 'brokerKeystore::password'    # Set the password or alias to the password of the keystore
+    KeystoreType: 'JKS'             # Set the keystore type, can be 'JKS' or 'P12'. Default is JKS.
+Events:
+  BusinessEvents:    # Business monitoring events
+    File:
+      enabled: true       # Set true or false, default false
+      outputFormat: 'xml' # Set comma separated list of one or more of : json,xml. Defaults to 'json'
+Monitoring:
+  MessageFlow:
+    publicationOn: 'active'

@@ -1,0 +1,56 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "SpotifyAccessTokenRequestor",
+    "version": "1.0.0",
+    "description": "SpotifyAccessTokenRequestor"
+  },
+  "servers": [
+    {
+      "url": "/spotifyaccesstokenrequestor/v1"
+    }
+  ],
+  "paths": {
+    "/login": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "success"
+          }
+        }
+      }
+    },
+    "/authorized": {
+      "parameters": [
+        {
+          "in": "query",
+          "name": "code",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "state",
+          "in": "query",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "error",
+          "in": "query",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "get": {
+        "responses": {
+          "200": {
+            "description": "success"
+          }
+        }
+      }
+    }
+  }
+}

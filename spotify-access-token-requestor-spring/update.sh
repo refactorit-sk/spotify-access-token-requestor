@@ -9,14 +9,14 @@ mvn clean verify
 docker build --build-arg UID=$HOST_UID --build-arg GID=$HOST_GID --build-arg USERNAME=$HOST_USERNAME --build-arg GROUPNAME=$HOST_USERNAME --tag=ivansla/${CONTAINER_NAME} .
 docker push ivansla/${CONTAINER_NAME}
 
-#docker container stop ${CONTAINER_NAME}
-#docker container rm ${CONTAINER_NAME}
+docker container stop ${CONTAINER_NAME}
+docker container rm ${CONTAINER_NAME}
 
 #rm -rf ./logs/
 
-#docker run -dt --name ${CONTAINER_NAME} -v ./logs:/logs ivansla/${CONTAINER_NAME}
-#docker network connect my-network ${CONTAINER_NAME}
-#docker network inspect my-network
+docker run -dt -p 8090:8090 --name ${CONTAINER_NAME} -v ./logs:/logs ivansla/${CONTAINER_NAME}
+docker network connect my-network ${CONTAINER_NAME}
+docker network inspect my-network
 #sudo docker exec -ti psb-logs-reducer bash
 
 

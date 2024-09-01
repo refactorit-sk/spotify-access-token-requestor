@@ -2,7 +2,10 @@
 <ns2:restapiDescriptor xmlns="http://com.ibm.etools.mft.descriptor.base" xmlns:ns2="http://com.ibm.etools.mft.descriptor.restapi" definitionType="openapi_3" definitionFile="openapi.json" implementation="gen/SpotifyAccessTokenRequestor.msgflow" https="true" definitionWithExtRef="false" faultFormat="JSON">
     <ns2:operations>
         <ns2:operation name="getAuthorized" implementation="getAuthorized.subflow"/>
+        <ns2:operation name="getHealth" implementation="getHealth.subflow"/>
         <ns2:operation name="getLogin" implementation="getLogin.subflow"/>
+        <ns2:operation name="postRefresh-access-token" implementation="postRefresh_access_token.subflow"/>
+        <ns2:operation name="postRequest-access-token" implementation="postRequest_access_token.subflow"/>
     </ns2:operations>
     <ns2:errorHandlers/>
 </ns2:restapiDescriptor>

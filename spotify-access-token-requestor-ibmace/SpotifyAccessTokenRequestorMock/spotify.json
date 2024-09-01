@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "https://accounts.spotify.com"
+      "url": "/spotifyaccesstokenrequestormock/v1"
     }
   ],
   "paths": {
@@ -70,11 +70,27 @@
           "content": {
             "application/x-www-form-urlencoded": {
               "schema": {
-                "grant_type": "string",
-                "code": "string",
-                "redirect_uri": "string"
+                "$ref": "#/components/schemas/AccessTokenRequestMessage"
               }
             }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AccessTokenRequestMessage": {
+        "type": "object",
+        "properties": {
+          "grant_type": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "redirect_uri": {
+            "type": "string"
           }
         }
       }

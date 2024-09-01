@@ -51,6 +51,84 @@
           }
         }
       }
+    },
+    "/health": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/request-access-token": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "requestBody": {
+          "description": "Optional description in *Markdown*",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccessTokenRequestMessage"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/refresh-access-token": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {}
+            }
+          }
+        },
+        "requestBody": {
+          "description": "Optional description in *Markdown*",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccessTokenRequestMessage"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AccessTokenRequestMessage": {
+        "type": "object",
+        "properties": {
+          "accessCode": {
+            "type": "string"
+          }
+        }
+      },
+      "RefreshTokenRequestMessage": {
+        "type": "object",
+        "properties": {
+          "refreshToken": {
+            "type": "string"
+          }
+        }
+      }
     }
   }
 }

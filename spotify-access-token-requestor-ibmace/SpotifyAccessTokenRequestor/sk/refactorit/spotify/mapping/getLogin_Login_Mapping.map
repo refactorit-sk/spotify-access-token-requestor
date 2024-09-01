@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="sk.refactorit.spotify.mapping" version="8.0.5.0" xmlns:map="sk.refactorit.spotify.mapping">
+    <inlinedXMLSchema><![CDATA[<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="redirect_uri" type="xsd:string"/>
+    <xsd:element name="scope" type="xsd:string"/>
+    <xsd:element name="client_id" type="xsd:string"/>
+    <xsd:element name="response_type" type="xsd:string"/>
+</xsd:schema>]]></inlinedXMLSchema>
+    <input inlinedXMLSchema="true" path="../schema_0.xsd" var="var"/>
+    <output path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/BlobMessage.xsd"/>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="getLogin_Login_Mapping">
+        <output path="mb:msg(BLOB,assembly,BLOB,LocalEnvironment)">
+            <cast castType="userDefined" path="LocalEnvironment/Destination/HTTP/QueryString/any" qualifier="response_type" ref="var"/>
+            <cast castType="userDefined" path="LocalEnvironment/Destination/HTTP/QueryString/any" qualifier="client_id" ref="var"/>
+            <cast castType="userDefined" path="LocalEnvironment/Destination/HTTP/QueryString/any" qualifier="scope" ref="var"/>
+            <cast castType="userDefined" path="LocalEnvironment/Destination/HTTP/QueryString/any" qualifier="redirect_uri" ref="var"/>
+        </output>
+        <assign value="code">
+            <output path="LocalEnvironment/Destination/HTTP/QueryString/response_type"/>
+        </assign>
+        <assign value="7b6122c9aa73442c8eb68af757d068eb">
+            <output path="LocalEnvironment/Destination/HTTP/QueryString/client_id"/>
+        </assign>
+        <assign value="user-read-private user-read-email">
+            <output path="LocalEnvironment/Destination/HTTP/QueryString/scope"/>
+        </assign>
+        <assign value="https://refactorit.brazilsouth.cloudapp.azure.com/authorized">
+            <output path="LocalEnvironment/Destination/HTTP/QueryString/redirect_uri"/>
+        </assign>
+        <assign value="TRUE">
+            <output path="LocalEnvironment/Destination/HTTP/QueryStringSendWithRedirect"/>
+        </assign>
+    </mappingDeclaration>
+</mappingRoot>

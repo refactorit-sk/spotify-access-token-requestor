@@ -1,8 +1,8 @@
 ---
 ResourceManagers:
   JVM:
-    jvmSystemProperty: '-Djavax.net.debug=true'
-    jvmDebugPort: 9000
+#    jvmSystemProperty: '-Djavax.net.debug=true'
+#    jvmDebugPort: 9000
     keystoreType: 'JKS'
 #    keystoreFile: '/tmp/refactorit.brazilsouth.cloudapp.azure.com.pfx'
     keystoreFile: '/tmp/keystore.jks'

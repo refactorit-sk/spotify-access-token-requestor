@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/" xmlns:fmt="http://www.ibm.com/dfdl/GeneralPurposeFormat" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+	
+	
+
+    <xsd:import namespace="http://www.ibm.com/dfdl/GeneralPurposeFormat" schemaLocation="IBMdefined/GeneralPurposeFormat.xsd"/>
+            <xsd:element ibmSchExtn:docRoot="true" name="RefreshTokenRequestMessage">
+    <xsd:complexType>
+      <xsd:sequence dfdl:separator="&amp;">
+        <xsd:element dfdl:initiator="grant_type=" name="grant_type" type="xsd:string"/>
+        <xsd:element dfdl:initiator="refresh_token=" name="refresh_token" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="AccessTokenRequestMessage">
+    <xsd:complexType>
+      <xsd:sequence dfdl:separator="&amp;">
+        <xsd:element dfdl:initiator="grant_type=" name="grant_type" type="xsd:string"/>
+        <xsd:element dfdl:initiator="code=" name="code" type="xsd:string"/>
+        <xsd:element dfdl:initiator="redirect_uri=" name="redirect_uri" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:annotation>
+		<xsd:appinfo source="http://www.ogf.org/dfdl/">
+			<dfdl:format encoding="{$dfdl:encoding}" escapeSchemeRef="" ref="fmt:GeneralPurposeFormat"/>
+		</xsd:appinfo>
+	</xsd:annotation>
+	
+
+</xsd:schema>

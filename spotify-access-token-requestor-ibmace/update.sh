@@ -8,10 +8,14 @@ openssl pkcs12 -export -out ${SSL_FOLDER}/refactorit.brazilsouth.cloudapp.azure.
 
 ibmint package --input-path ~/Repositories/spotify-access-token-requestor/spotify-access-token-requestor-ibmace/SpotifyAccessTokenRequestor \
 --output-bar-file ~/Repositories/spotify-access-token-requestor/spotify-access-token-requestor-ibmace/SpotifyAccessTokenRequestor.bar \
+--overrides-file ~/Repositories/spotify-access-token-requestor/spotify-access-token-requestor-ibmace/SpotifyAccessTokenRequestor/config/properties.override \
 --do-not-compile-java
 
 docker build --tag=${REPOSITORY_NAME}/${CONTAINER_NAME} --build-arg="PASSWORD=LenovoLenovo123" --build-arg="HOSTNAME=refactorit_sk" .
 docker push ${REPOSITORY_NAME}/${CONTAINER_NAME}
+
+ssh ivansla@refactorit.brazilsouth.cloudapp.azure.com '~/update-spotify-access-token-requestor-ibmace.sh'
+
 
 #docker container stop ace
 #docker container rm ace
